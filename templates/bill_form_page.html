@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="static/main.css">
+</head>
+<body>
+<h2>The Bill Form</h2>
+<p>Fill in the form and click the button to get the results</p>
+<form action="{{url_for('bill_form_page')}}" method="post">
+
+    {{billform.amount.label}} {{billform.amount}}
+    <br>
+    {{billform.period.label}} {{billform.period}}
+    <hr>
+
+    
+    {{billform.name1.label}} {{billform.name1}} 
+    <br>
+    {{billform.days_in_house1.label}} {{billform.days_in_house1}}
+    <hr>
+    {{billform.name2.label}} {{billform.name2}} 
+    <br>
+    {{billform.days_in_house2.label}} {{billform.days_in_house2}}
+    <hr>
+    {{billform.name3.label}} {{billform.name3}} 
+    <br>
+    {{billform.days_in_house3.label}} {{billform.days_in_house3}}
+    <hr>
+
+    {{billform.button}}
+
+    <br>
+    {% if result %}
+        {{f1name}} pays {{f1pays}} <br>
+        {{f2name}} pays {{f2pays}} <br>
+        {{f3name}} pays {{f3pays}} <br>
+        <a href="{{cloud_link}}">Link to the pdf</a>
+    {% endif %}
+
+</form>
+</body>
+</html>
+
+
+<!-- For the forms, one way to put the labels and inputs -->
+<!-- <label>Bill Amount: </label> -->
+<!-- <input type="text"> -->
